@@ -4,7 +4,10 @@
 \author{Joey Stanley}
 
 
-\usepackage{hyperref}
+\usepackage{hyperref} % hyperlinks to external websites
+
+\usepackage[T1]{fontenc}  % access \textquotedbl
+\usepackage{textcomp}     % access \textquotesingle
 
 \begin{document}
 \maketitle{}
@@ -13,6 +16,8 @@
 Today's workshop will introduce a lot of the basics of \LaTeX. The goal by the end of the hour is for you to be able to typset a basic document. Some of the more sophisticated features---including those that you'll need for a full dissertation---will be covered in later workshops. Of course, there are countless tutorials and helps available to you online.
 
 It is assumed that you already have some way to use \LaTeX. You can do this on your own computer with a variety of software packages (Atom, TeXStudio, TeXShop, etc.) or you can do it entirely online using Overleaf.com. The concepts that will be covered today will apply regardless of which software you use. If you need help, please get my attention as soon as possible.
+
+
 
 \section{Basic document structure}
 
@@ -24,6 +29,8 @@ To get started, the most basic structure you'll need in a \LaTeX file is this:
   \end{document}
 \end{verbatim}
 Everything before the \verb+\begin{document}+ line is called the \textit{preamble}, and it's where you'll put information to customize your document. Everything after that (but before \verb+\end{document}+) is the body of your text, and that's where you'll do most of the typing. For now, we'll leave the preamble alone and we'll just start typing stuff in the body.
+
+
 
 \section{Basic text}
 
@@ -97,6 +104,45 @@ There are a few characters that will cause you some trouble in \LaTeX. These are
     But, almost 100\% of the time it doesn't matter!
   \end{minipage}
 }
+
+One thing that may not be intuitive is how quotation marks work. Because English text typically uses the curly quotes (``\ldots'') instead of straight quotes (\textquotedbl \ldots \textquotedbl), we have to type opening and closing quotation marks differently. For opening quotes, use the tick $`$ character (which is found to the left of the 1 key on my keyboard). For closing quotation marks, use just the regular apostrophe. For double quotes, just two two ticks or two apostophes. There's not need for the actual double quotation character. For apostrophes, just use the apostrophe.
+
+\vspace{1em}
+\begin{minipage}[t]{0.6\textwidth}
+  \begin{verbatim}
+    I overheard her say, ``And
+    he's like, `I don't believe
+    you!'.''
+  \end{verbatim}
+\end{minipage}
+\fbox{
+  \begin{minipage}[t]{0.35\textwidth}
+    I overheard her say, ``And he's like, `I don't believe you!'.''
+  \end{minipage}
+}
+
+Finally, for en-dashes, which are for ranges of numbers and a few other special cases, type two hyphens in a row. For em-dashes, type three hyphens in a row. For a regular dash or hyphen, just one will do fine, as expected.
+
+\vspace{1em}
+\begin{minipage}[t]{0.6\textwidth}
+  \begin{verbatim}
+    Kelly single-handedly made
+    4--5 dozen New York--style
+    bagels and they were---and I
+    cannot stress this enough---
+    heaven-sent.
+  \end{verbatim}
+\end{minipage}
+\fbox{
+  \begin{minipage}[t]{0.35\textwidth}
+    Kelly single-handedly made 4--5 dozen New York--style bagels and they were---and I cannot stress this enough---heaven-sent.
+  \end{minipage}
+}
+
+
+
+
+
 
 \subsection{Non-English characters}
 
@@ -266,8 +312,6 @@ Of course you can manually set the font size to a specific size if you'd like. T
   \end{minipage}
 }
 
-Test
-
 
 
 
@@ -285,18 +329,17 @@ Test
 }
 
 \begin{enumerate}
-  \item environments: lists
+  \item lists
   \item centering and alignment
-  \item tables
   \item vertical and horizontal spacing
   \item sections
-  \item accents, dashes \& hyphens, quotation marks
 \end{enumerate}
 
 
 Things I won't get to, but would like to.
 \begin{enumerate}
   \item Change paragraph indentation with \verb+\setlength{\parindent}{1cm}+. Note that the default is 15 points. You can change it to not indent something with \verb+\noindent+.
+  \item tables
 \end{enumerate}
 
 \end{document}
