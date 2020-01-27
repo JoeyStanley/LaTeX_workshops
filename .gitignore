@@ -1,7 +1,7 @@
 .DS_Store
-intro.aux
-intro.fdb_latexmk
-intro.fls
-intro.log
-intro.out
-intro.synctex.gz
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
