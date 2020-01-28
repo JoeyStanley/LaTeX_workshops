@@ -1,6 +1,6 @@
 \documentclass[10pt]{article}
 
-\title{Introduction to \LaTeX:\\Basic typesetting}
+\title{Introduction to \latex:\\Basic typesetting}
 \author{Joey Stanley}
 
 
@@ -8,20 +8,29 @@
 
 \usepackage[T1]{fontenc}  % access \textquotedbl
 \usepackage{textcomp}     % access \textquotesingle
+\usepackage{xspace}
+
+\newcommand{\latex}{\LaTeX\xspace}
 
 \begin{document}
 \maketitle{}
+
+\tableofcontents
+
+\newpage
+\part{Getting Started}
+
 \section{Introduction}
 
-Today's workshop will introduce a lot of the basics of \LaTeX. The goal by the end of the hour is for you to be able to typset a basic document. Some of the more sophisticated features---including those that you'll need for a full dissertation---will be covered in later workshops. Of course, there are countless tutorials and helps available to you online.
+Today's workshop will introduce a lot of the basics of \latex. The goal by the end of the hour is for you to be able to typset a basic document. Some of the more sophisticated features---including those that you'll need for a full dissertation---will be covered in later workshops. Of course, there are countless tutorials and helps available to you online.
 
-It is assumed that you already have some way to use \LaTeX. You can do this on your own computer with a variety of software packages (Atom, TeXStudio, TeXShop, etc.) or you can do it entirely online using Overleaf.com. The concepts that will be covered today will apply regardless of which software you use. If you need help, please get my attention as soon as possible.
+It is assumed that you already have some way to use \latex. You can do this on your own computer with a variety of software packages (Atom, TeXStudio, TeXShop, etc.) or you can do it entirely online using Overleaf.com. The concepts that will be covered today will apply regardless of which software you use. If you need help, please get my attention as soon as possible.
 
 
 
 \section{Basic document structure}
 
-To get started, the most basic structure you'll need in a \LaTeX file is this:
+To get started, the most basic structure you'll need in a \latex file is this:
 \begin{verbatim}
   \documentclass{article}
   \begin{document}
@@ -30,25 +39,26 @@ To get started, the most basic structure you'll need in a \LaTeX file is this:
 \end{verbatim}
 Everything before the \verb+\begin{document}+ line is called the \textit{preamble}, and it's where you'll put information to customize your document. Everything after that (but before \verb+\end{document}+) is the body of your text, and that's where you'll do most of the typing. For now, we'll leave the preamble alone and we'll just start typing stuff in the body.
 
-
+\newpage
+\part{Basic Typesetting}
 
 \section{Basic text}
 
-Once you're in the body of your document, you can type almost whatever you want. If you're considering switching over from Word to \LaTeX, for example, the vast majority of what you copy and paste over will transfer just fine. However, there are a few things to consdier.
+Once you're in the body of your document, you can type almost whatever you want. If you're considering switching over from Word to \latex, for example, the vast majority of what you copy and paste over will transfer just fine. However, there are a few things to consdier.
 
-First, to make a new line in \LaTeX, you need to hit enter twice, so that in your text editor there is a blank line between paragraphs. If you only hit enter once, \LaTeX won't know that you want to do a new line and it'll actually continue from the previous paragraph. Here's an example with what your code might look like on the left, and what the PDF might look like on the right (this template of code + PDF will be used throughout this document):
+First, to make a new line in \latex, you need to hit enter twice, so that in your text editor there is a blank line between paragraphs. If you only hit enter once, \latex won't know that you want to do a new line and it'll actually continue from the previous paragraph. Here's an example with what your code might look like on the left, and what the PDF might look like on the right (this template of code + PDF will be used throughout this document):
 
 \vspace{1em}
-\begin{minipage}[t]{0.6\textwidth}
+\begin{minipage}[t]{0.5\textwidth}
   \begin{verbatim}
-    Paragraph one.
-    Paragraph two.
+Paragraph one.
+Paragraph two.
 
-    Paragraph three.
+Paragraph three.
   \end{verbatim}
 \end{minipage}
 \fbox{
-  \begin{minipage}[t]{0.35\textwidth}
+  \begin{minipage}[t]{0.4\textwidth}
     Paragraph one.
     Paragraph two.
 
@@ -56,22 +66,22 @@ First, to make a new line in \LaTeX, you need to hit enter twice, so that in you
   \end{minipage}
 }
 
-By default, \LaTeX will do some indentation for you at the start of each paragraph. You can suppress indentation for a paragraph by putting \verb+\noindent+. just before it:
+By default, \latex will do some indentation for you at the start of each paragraph. You can suppress indentation for a paragraph by putting \verb+\noindent+. just before it:
 
 \vspace{1em}
-\begin{minipage}[t]{0.6\textwidth}
+\begin{minipage}[t]{0.5\textwidth}
   \begin{verbatim}
-    This is a very short paragraph
-    but it is long enough to show
-    that it's indented.
+This is a very short paragraph
+but it is long enough to show
+that it's indented.
 
-    \noindent
-    This paragraph is slightly
-    shorter and it's not indented.
+\noindent
+This paragraph is slightly
+shorter and it's not indented.
   \end{verbatim}
 \end{minipage}
 \fbox{
-  \begin{minipage}[t]{0.35\textwidth}
+  \begin{minipage}[t]{0.4\textwidth}
     \setlength{\parindent}{15pt}
     This is a very short paragraph but it is long enough to show that it's indented.
 
@@ -84,22 +94,22 @@ By default, \LaTeX will do some indentation for you at the start of each paragra
 
 \subsection{Non-word characters}
 
-There are a few characters that will cause you some trouble in \LaTeX. These are characters like \textbackslash, \%, \&, and a few others. They won't display properly because they are reserved for specific purposes within the \LaTeX language itself. For most of these, you can just precede the symbol with a backslash (\textbackslash). For the backslash itself, you'll need to use \verb+\textbackslash+.
+There are a few characters that will cause you some trouble in \latex. These are characters like \textbackslash, \%, \&, and a few others. They won't display properly because they are reserved for specific purposes within the \latex language itself. For most of these, you can just precede the symbol with a backslash (\textbackslash). For the backslash itself, you'll need to use \verb+\textbackslash+.
 
 \vspace{1em}
-\begin{minipage}[t]{0.6\textwidth}
+\begin{minipage}[t]{0.5\textwidth}
   \begin{verbatim}
-    Made up numbers are used in
-    \LaTeX documents 75% and 90%
-    of the time!
+Made up numbers are used in
+\latex documents 75% and 90% of
+the time!
 
-    But, almost 100\% of the time
-    it doesn't matter!
+But, almost 100\% of the time it
+doesn't matter!
   \end{verbatim}
 \end{minipage}
 \fbox{
-  \begin{minipage}[t]{0.35\textwidth}
-    Made up numbers are used in \LaTeX documents 75% and 90% of the time!
+  \begin{minipage}[t]{0.4\textwidth}
+    Made up numbers are used in \latex documents 75% and 90% of the time!
 
     But, almost 100\% of the time it doesn't matter!
   \end{minipage}
@@ -108,15 +118,14 @@ There are a few characters that will cause you some trouble in \LaTeX. These are
 One thing that may not be intuitive is how quotation marks work. Because English text typically uses the curly quotes (``\ldots'') instead of straight quotes (\textquotedbl \ldots \textquotedbl), we have to type opening and closing quotation marks differently. For opening quotes, use the tick $`$ character (which is found to the left of the 1 key on my keyboard). For closing quotation marks, use just the regular apostrophe. For double quotes, just two two ticks or two apostophes. There's not need for the actual double quotation character. For apostrophes, just use the apostrophe.
 
 \vspace{1em}
-\begin{minipage}[t]{0.6\textwidth}
+\begin{minipage}[t]{0.5\textwidth}
   \begin{verbatim}
-    I overheard her say, ``And
-    he's like, `I don't believe
-    you!'.''
+I overheard her say, ``And he's
+like, `I don't believe you!'.''
   \end{verbatim}
 \end{minipage}
 \fbox{
-  \begin{minipage}[t]{0.35\textwidth}
+  \begin{minipage}[t]{0.4\textwidth}
     I overheard her say, ``And he's like, `I don't believe you!'.''
   \end{minipage}
 }
@@ -124,17 +133,16 @@ One thing that may not be intuitive is how quotation marks work. Because English
 Finally, for en-dashes, which are for ranges of numbers and a few other special cases, type two hyphens in a row. For em-dashes, type three hyphens in a row. For a regular dash or hyphen, just one will do fine, as expected.
 
 \vspace{1em}
-\begin{minipage}[t]{0.6\textwidth}
+\begin{minipage}[t]{0.5\textwidth}
   \begin{verbatim}
-    Kelly single-handedly made
-    4--5 dozen New York--style
-    bagels and they were---and I
-    cannot stress this enough---
-    heaven-sent.
+Kelly single-handedly made 4--5
+dozen New York--style bagels and
+they were---and I cannot stress
+this enough---heaven-sent.
   \end{verbatim}
 \end{minipage}
 \fbox{
-  \begin{minipage}[t]{0.35\textwidth}
+  \begin{minipage}[t]{0.4\textwidth}
     Kelly single-handedly made 4--5 dozen New York--style bagels and they were---and I cannot stress this enough---heaven-sent.
   \end{minipage}
 }
@@ -146,7 +154,7 @@ Finally, for en-dashes, which are for ranges of numbers and a few other special 
 
 \subsection{Non-English characters}
 
-For accented, non-English, or other less-common characters, you may have to play around with them. Most accented characters will render just fine in \LaTeX, which means you can feel free to type naïve, résumé, japapeño, vis-à-vis, tête-à-tête, façade, Māori, and háček. For other characters that are more specialized or are non-Latin based, you may have to resort to add-on packages to get them to render properly. The first one to check is the \href{http://ctan.math.utah.edu/ctan/tex-archive/macros/latex/required/babel/base/babel.pdf}{babel} package, which has support for over 200 languages, including Arabic, Cherokee, Chinese, Devanagari, Georgian, Greek, Hebrew, Persian, Faroese, Japanese, Korean, Russian, Sanskrit, Vietnamese, and a whole bunch more.
+For accented, non-English, or other less-common characters, you may have to play around with them. Most accented characters will render just fine in \latex, which means you can feel free to type naïve, résumé, japapeño, vis-à-vis, tête-à-tête, façade, Māori, and háček. For other characters that are more specialized or are non-Latin based, you may have to resort to add-on packages to get them to render properly. The first one to check is the \href{http://ctan.math.utah.edu/ctan/tex-archive/macros/latex/required/babel/base/babel.pdf}{babel} package, which has support for over 200 languages, including Arabic, Cherokee, Chinese, Devanagari, Georgian, Greek, Hebrew, Persian, Faroese, Japanese, Korean, Russian, Sanskrit, Vietnamese, and a whole bunch more.
 
 \section{Changing the text}
 
@@ -155,15 +163,15 @@ For accented, non-English, or other less-common characters, you may have to play
 In addition to being able to type whatever you want, it's important to also be able to format that text. You can use \textbf{bold} with \verb+\textbf{}+ and \textit{italics} with \verb+\textit{}+. There is also a \textsl{slanted text} with \verb+\textsl{}+ in case you need that.
 
 \vspace{1em}
-\begin{minipage}[t]{0.6\textwidth}
+\begin{minipage}[t]{0.5\textwidth}
   \begin{verbatim}
-    This is \textbf{bold}.
-    This is \textit{italicized}.
-    This is \textsl{slanted}.
+This is \textbf{bold}.
+This is \textit{italicized}.
+This is \textsl{slanted}.
   \end{verbatim}
 \end{minipage}
 \fbox{
-  \begin{minipage}[t]{0.35\textwidth}
+  \begin{minipage}[t]{0.4\textwidth}
     This is \textbf{bold}.
 
     This is \textit{italicized}.
@@ -171,6 +179,7 @@ In addition to being able to type whatever you want, it's important to also be a
     This is \textsl{slanted}.
   \end{minipage}
 }
+
 \noindent
 Also, note that these functions can be embedded within one another so that to do \textbf{\textit{bold italics}} you can type \verb+ \textbf{\textit{bold italics}}+.
 
@@ -179,15 +188,15 @@ Also, note that these functions can be embedded within one another so that to do
 You can also adjust the capitalization of your text. Note that these commands ignore whatever case your original text is in and displays them correctly.
 
 \vspace{1em}
-\begin{minipage}[t]{0.6\textwidth}
+\begin{minipage}[t]{0.5\textwidth}
   \begin{verbatim}
-    This is \uppercase{upPerCase}.
-    This is \lowercase{loWerCaSe}.
-    This is \textsc{Small Caps}.
+This is \uppercase{upPerCase}.
+This is \lowercase{loWerCaSe}.
+This is \textsc{Small Caps}.
   \end{verbatim}
 \end{minipage}
 \fbox{
-  \begin{minipage}[t]{0.35\textwidth}
+  \begin{minipage}[t]{0.4\textwidth}
     This is \uppercase{uppercase}.
 
     This is \lowercase{loWerCaSe}.
@@ -195,6 +204,7 @@ You can also adjust the capitalization of your text. Note that these commands ig
     This is \textsc{Small Caps}.
   \end{minipage}
 }
+
 \noindent
 Note that if you have accented characters that need to change case, try \verb+\MakeUppercase{}+ and \verb+\MakeLowercase+ instead.
 
@@ -203,20 +213,20 @@ Note that if you have accented characters that need to change case, try \verb+\M
 It may also be important to change font families. Body text is usually written in a serif font, which is one that has the little tails and horizontal embellishments on the letters (called \textit{serifs}). To force text to be in a serif (or \textit{roman}) font, you can use \verb+\textrm{}+. Headers are often typed in a \textsf{sans serif} font. Computer code is often typed in a \texttt{typewriter} or \texttt{monospaced} font:
 
 \vspace{1em}
-\begin{minipage}[t]{0.6\textwidth}
+\begin{minipage}[t]{0.5\textwidth}
   \begin{verbatim}
-    This is a \textrm{serif} font.
-    This is a \textsf{sans serif} font.
-    This is a \texttt{typewriter} font.
+A \textrm{serif} font.
+A \textsf{sans serif} font.
+A \texttt{typewriter} font.
   \end{verbatim}
 \end{minipage}
 \fbox{
-  \begin{minipage}[t]{0.35\textwidth}
-    This is a \textrm{serif} font.
+  \begin{minipage}[t]{0.4\textwidth}
+    A \textrm{serif} font.
 
-    This is a \textsf{sans serif} font.
+    A \textsf{sans serif} font.
 
-    This is a \texttt{typewriter} font.
+    A \texttt{typewriter} font.
   \end{minipage}
 }
 
@@ -229,22 +239,22 @@ First off the default size of the text is 10-point font. But you can change it t
 The easiest way to \textit{change} sizes is by using one of several built-in commands for changing the size relative to the normal size. The benefit of this is that if you ever need to change your font size, these changes will scale up or down proportionally.
 
 \vspace{1em}
-\begin{minipage}[t]{0.6\textwidth}
+\begin{minipage}[t]{0.5\textwidth}
   \begin{verbatim}
-    \Huge Typesetting!
-    \huge Typsetting!
-    \LARGE Typsetting!
-    \Large Typsetting!
-    \large Typsetting!
-    \normalsize Typsetting!
-    \small Typsetting!
-    \footnotesize Typsetting!
-    \scriptsize Typsetting!
-    \tiny Typsetting!
+\Huge Typesetting!
+\huge Typsetting!
+\LARGE Typsetting!
+\Large Typsetting
+\large Typsetting!
+\normalsize Typsetting!
+\small Typsetting!
+\footnotesize Typsetting!
+\scriptsize Typsetting!
+\tiny Typsetting!
   \end{verbatim}
 \end{minipage}
 \fbox{
-  \begin{minipage}[t]{0.35\textwidth}
+  \begin{minipage}[t]{0.4\textwidth}
     \Huge Typesetting!
 
     \huge Typsetting!
@@ -266,23 +276,25 @@ The easiest way to \textit{change} sizes is by using one of several built-in com
     \tiny Typsetting!
   \end{minipage}
 }
+\vspace{1em}
+
 \noindent
 For these, you can put them at the beginnning of a paragraph to modify the entire paragraph (and any subsequent paragraphs until another size change), or you can put them in brackets to modify just a specific word or two:
 
 \vspace{1em}
-\begin{minipage}[t]{0.6\textwidth}
+\begin{minipage}[t]{0.5\textwidth}
   \begin{verbatim}
-    \large
-    This whole paragraph is large.
+\large
+This whole paragraph is large.
 
-    Oops. This one is too.
+Oops. This one is too.
 
-    \small
-    Just {\large this text} is large.
+\small
+Just {\large this text} is large.
   \end{verbatim}
 \end{minipage}
 \fbox{
-  \begin{minipage}[t]{0.35\textwidth}
+  \begin{minipage}[t]{0.4\textwidth}
     \large This whole paragraph is large.
 
     Oops. This one is too.
@@ -295,51 +307,253 @@ For these, you can put them at the beginnning of a paragraph to modify the entir
 Of course you can manually set the font size to a specific size if you'd like. This is accomplished with the template \verb+\fontsize{}{}\selectfont+. Within the first pair of curly brackets, you put the size and the unit (points = \texttt{pt}, millimeters = \texttt{mm}, centimeters = \texttt{cm}, inches = \texttt{in}, whatever). Within the second pair, you need to specify the \textit{leading}, which the typographical term for the line spacing, because when you change font size you're probably going to want to change the spacing. Typically, you give it a little extra spacing so that it doesn't run into the line above it.
 
 \vspace{1em}
-\begin{minipage}[t]{0.6\textwidth}
+\begin{minipage}[t]{0.5\textwidth}
   \begin{verbatim}
-    This is 10-point font, which is
-    the default, but you can change
-    it to something like
-    \fontsize{15pt}{19pt}\selectfont
-    15-point font with 19pt leading.
-    \normalsize Just be sure to change
-    it back when you're done!
+This is 10-point font, which is
+the default, but you can change
+it to something like
+\fontsize{15pt}{19pt}\selectfont
+15-point font with 19pt leading.
+
+\normalsize
+Just be sure to change
+it back when you're done!
   \end{verbatim}
 \end{minipage}
 \fbox{
-  \begin{minipage}[t]{0.35\textwidth}
+  \begin{minipage}[t]{0.4\textwidth}
     This is 10-point font, which is the default, but you can change it to something like \fontsize{15pt}{19pt}\selectfont 15-point font with 19pt leading. \normalsize Just be sure to change it back when you're done!
   \end{minipage}
 }
 
+\section{Document structure}
 
+When moving beyond the paragraph level, it's important to know how to add some elements to your document to give it structure. In this section, we look at sections and lists.
 
+\subsection{Headers and subheaders}
 
-%%%%%%%%%%%%%%%%%%
-\section{To-Do}
+Unless you're writing a novel, it's probably important to have some headers to break your document up into sections. Fortunately, it's straightforward with the \verb+\section{}+ command. For deeper levels, you can do \verb+\subsection{}+ and even \verb+\subsubsection{}+.
 
 \vspace{1em}
-\begin{minipage}[t]{0.6\textwidth}
+\begin{minipage}[t]{0.5\textwidth}
   \begin{verbatim}
+\section{Main level}
+
+\subsection{One level deep}
+
+\subsubsection{Two levels deep}
   \end{verbatim}
 \end{minipage}
 \fbox{
-  \begin{minipage}[t]{0.35\textwidth}
+  \begin{minipage}[t]{0.4\textwidth}
+    % Had to do this workaround so they wouldn't show up in the Table of contents.
+    \section*{1\hspace{1em}Main level}
+    \subsection*{1.1\hspace{1em} One level deep}
+    \subsubsection*{1.1.1\hspace{1em} Two levels deep}
   \end{minipage}
 }
 
-\begin{enumerate}
-  \item lists
-  \item centering and alignment
-  \item vertical and horizontal spacing
-  \item sections
-\end{enumerate}
+\noindent
+It's generally unwise to go a fourth level deep because readers often have a hard time of keeping that many levels straight, so it's not as straightforward to do in LaTeX.
+
+If you don't like the numbers, you can suppress them by adding an asterisk after the name of the command but before the curly brackets:
+
+\vspace{1em}
+\begin{minipage}[t]{0.5\textwidth}
+  \begin{verbatim}
+\section*{Main level}
+
+\subsection*{One level deep}
+
+\subsubsection*{Two levels deep}
+  \end{verbatim}
+\end{minipage}
+\fbox{
+  \begin{minipage}[t]{0.4\textwidth}
+    \section*{Main level}
+    \subsection*{One level deep}
+    \subsubsection*{Two levels deep}
+  \end{minipage}
+}
+
+Technically, it's possible to just include bigger and bolder text to create the illustion of sections, but that's not recommended. The reason is because when you type things as sections, you can generate a table of contents. You can do so by putting \verb+\tableofcontents+ somewhere near the top of your document (perhaps just under the title). That's exactly what I've done in this document.
 
 
-Things I won't get to, but would like to.
+
+\vspace{1em}
+\section{Lists}
+
+It doesn't happen very often, but sometimes it's important to make lists of some sort. To make a numbered or a bulleted list, we'll have to introduce the idea of an \textit{environment}. \latex environments can be thought of a more complicated function that applies to a larger passage of text. They begin with a \verb+\begin{}+ tag and end with a \verb+\end{}+ tag.
+
+For \textit{unordered} lists, which typically have a bullet point at the start of each line, you use the \texttt{itemize} environment. Each item within that lists starts with the \verb+\item+ tag:
+
+\vspace{1em}
+\begin{minipage}[t]{0.5\textwidth}
+  \begin{verbatim}
+\begin{itemize}
+  \item First bullet
+  \item Second bullet
+\end{itemize}
+  \end{verbatim}
+\end{minipage}
+\fbox{
+  \begin{minipage}[t]{0.4\textwidth}
+    \begin{itemize}
+      \item First bullet
+      \item Second bullet
+    \end{itemize}
+  \end{minipage}
+}
+
+\noindent
+For \textit{ordered} lists, which have numbers at the start of each line, use the \texttt{enumerate} environment, but the syntax is otherwise identical:
+
+\vspace{1em}
+\begin{minipage}[t]{0.5\textwidth}
+  \begin{verbatim}
 \begin{enumerate}
-  \item Change paragraph indentation with \verb+\setlength{\parindent}{1cm}+. Note that the default is 15 points. You can change it to not indent something with \verb+\noindent+.
-  \item tables
-\end{enumerate}
+  \item First bullet
+  \item Second bullet
+\end{itemize}
+  \end{verbatim}
+\end{minipage}
+\fbox{
+  \begin{minipage}[t]{0.4\textwidth}
+    \begin{enumerate}
+      \item First number
+      \item Second number
+    \end{enumerate}
+  \end{minipage}
+}
+
+\noindent
+You can even nest these lists, and mix and match how you please.
+
+For more information, including how to customize the symbols, change the numeric system (particularly with embedded lists), and start numbered list using a different number, see \href{https://www.overleaf.com/learn/latex/Lists#Ordered_lists}{this tutorial by Overleaf}.
+
+
+
+
+\section{Text alignment}
+
+The main body text in \latex will be justified, meaning text will be flush against both the left and the right margins. To override this behavior, you can use the \verb+\raggedright+, \verb+raggedleft+, or \verb+\centering+ functions before the first paragraph in your document:
+
+\vspace{1em}
+\noindent
+\fbox{
+  \begin{minipage}[t]{0.45\textwidth}
+    This is an example of fully-justified text, which is the default in \latex. You can see that the text is flush against the left and right margins. Personally, I think this looks best so long as the body of the text is wide enough.
+  \end{minipage}
+}
+\fbox{
+  \begin{minipage}[t]{0.45\textwidth}
+    \raggedright
+    This is an example of left-justified text. Somewhat unintuitively, I had to use the \texttt{\textbackslash raggedright} command to pull this off, but if you pay attention to the \textit{right} margin, you can see that the text is all ragged and not lined up.
+  \end{minipage}
+}
+
+\noindent
+\fbox{
+  \begin{minipage}[t]{0.45\textwidth}
+    \raggedleft
+    This is an example of right-justified text. Somewhat unintuitively, I had to use the \texttt{\textbackslash raggedleft} command to pull this off, but if you pay attention to the \textit{left} margin, you can see that the text is all ragged and not lined up.
+  \end{minipage}
+}
+\fbox{
+  \begin{minipage}[t]{0.45\textwidth}
+    \centering
+    This is an example of centered text. I used the \texttt{\textbackslash centering} command to pull this off. This is typically not recommended unless it's for a one- or two-line passage like a title or something. For long paragraphs, it's hard to read centered text.
+  \end{minipage}
+}
+\vspace{1em}
+
+For more information on how to apply these changes to your entire document, see \href{https://www.overleaf.com/learn/latex/Text_alignment}{this page in Overleaf}. You may also want to check out the \texttt{ragged2e} package, which implements a more sophisticated method for hyphenation and justification to make your document look a little nicer.
+
+
+\section{Spacing}
+
+Sometimes, \latex just doesn't quite behave the way you want it to. It is quite common among beginners (and long-time users) to have something that isn't positioned quite right. One little trick for making small adjustments to where things are positioned on the page is with the \verb+\vspace{}+ and \verb+\hspace{}+ commands. As their name implies, they simply add some \textit{vertical} space or some \textit{horizontal} space. Within the brackets, you put how much space should be added, using the same syntax that we saw above with the font sizes (a number plus a unit of measurement).
+
+\vspace{1em}
+\begin{minipage}[t]{0.5\textwidth}
+  \begin{verbatim}
+This gap [\hspace{1in}] is one
+inch wide.
+
+\vspace{1cm}
+This paragraph is one
+centimeter down.
+  \end{verbatim}
+\end{minipage}
+\fbox{
+  \begin{minipage}[t]{0.4\textwidth}
+    This gap [\hspace{1in}] is one inch wide.
+
+    \vspace{1cm}
+    This paragraph is one centimeter down.
+  \end{minipage}
+}
+
+A very useful unit of measurement to be aware of is the \textit{em}. Despite what the name implies, it is not the width of the character \textit{M}, but rather it is the \textit{height} of your text. So if you're typing in 10-point font, an em is 12 points. If you want to insert a one-line break between elements on the page, \verb+\vspace{em}+ is a really good way to do that.\footnote{In fact, the gaps between these sample code snippets and the paragraph following them are created in this way.}
+
+Also, it's good to know that you can put negative numbers as the size of the gap. This is useful in case you need to squeeze things together or remove an indent or something.
+
+\vspace{1em}
+\begin{minipage}[t]{0.45\textwidth}
+  \begin{verbatim}
+\hspace{-2em}This paragraph has
+a negative indent and spills
+into the edge of the box.
+
+\vspace{-0.5em}
+This paragraph is uncomfortably
+close.
+  \end{verbatim}
+\end{minipage}
+\hspace{2em}
+\fbox{
+  \begin{minipage}[t]{0.4\textwidth}
+    \hspace{-2em}This paragraph has a negative indent and spills into the edge of the box.
+
+    \vspace{-0.5em}
+    This paragraph is uncomfortably close.
+  \end{minipage}
+}
+
+
+
+
+
+
+
+
+
+
+\newpage
+\part{Global Changes}
+
+
+
+
+
+
+
+
+
+\newpage
+\part{Final Remarks}
+
+\section{Where to go for help}
+
+You may feel overwhelmed at first. Fortunately \latex has been around for a long time, and there's a \textit{lot} of free resources online. One really good place to start is \href{https://www.overleaf.com/learn/latex/Main_Page}{Overleaf's help pages}.
+
+
+
+\section{Conclusion}
+
+This document has outlined some of the key components of \latex. With these skills, you should be able to write the majority of your dissertation. Other topics like mathmatical formulas, images, and tables will be covered at a later date.
+
+
+
 
 \end{document}

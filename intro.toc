@@ -1,0 +1,20 @@
+\contentsline {part}{I\hspace {1em}Getting Started}{3}{part.1}% 
+\contentsline {section}{\numberline {1}Introduction}{3}{section.1}% 
+\contentsline {section}{\numberline {2}Basic document structure}{3}{section.2}% 
+\contentsline {part}{II\hspace {1em}Basic Typesetting}{4}{part.2}% 
+\contentsline {section}{\numberline {3}Basic text}{4}{section.3}% 
+\contentsline {section}{\numberline {4}Special characters}{4}{section.4}% 
+\contentsline {subsection}{\numberline {4.1}Non-word characters}{4}{subsection.4.1}% 
+\contentsline {subsection}{\numberline {4.2}Non-English characters}{5}{subsection.4.2}% 
+\contentsline {section}{\numberline {5}Changing the text}{5}{section.5}% 
+\contentsline {subsection}{\numberline {5.1}Fonts}{5}{subsection.5.1}% 
+\contentsline {subsection}{\numberline {5.2}Captitalization}{6}{subsection.5.2}% 
+\contentsline {subsection}{\numberline {5.3}Typefaces}{6}{subsection.5.3}% 
+\contentsline {subsection}{\numberline {5.4}Size}{6}{subsection.5.4}% 
+\contentsline {section}{\numberline {6}Document structure}{8}{section.6}% 
+\contentsline {subsection}{\numberline {6.1}Headers and subheaders}{8}{subsection.6.1}% 
+\contentsline {section}{\numberline {7}Lists}{8}{section.7}% 
+\contentsline {section}{\numberline {8}Text alignment}{9}{section.8}% 
+\contentsline {section}{\numberline {9}Spacing}{10}{section.9}% 
+\contentsline {part}{III\hspace {1em}Global Changes}{10}{part.3}% 
+\contentsline {section}{\numberline {10}Conclusion}{11}{section.10}% 
