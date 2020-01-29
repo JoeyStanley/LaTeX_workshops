@@ -15,7 +15,7 @@
 \contentsline {subsection}{\numberline {5.1}Headers and subheaders}{8}{subsection.5.1}% 
 \contentsline {subsection}{\numberline {5.2}Internal references}{9}{subsection.5.2}% 
 \contentsline {subsection}{\numberline {5.3}Lists}{9}{subsection.5.3}% 
-\contentsline {subsection}{\numberline {5.4}footnotes}{9}{subsection.5.4}% 
+\contentsline {subsection}{\numberline {5.4}Footnotes}{9}{subsection.5.4}% 
 \contentsline {subsection}{\numberline {5.5}Long quotations}{9}{subsection.5.5}% 
 \contentsline {section}{\numberline {6}Alignment and spacing}{10}{section.6}% 
 \contentsline {subsection}{\numberline {6.1}Text alignment and justification}{10}{subsection.6.1}% 
@@ -26,8 +26,10 @@
 \contentsline {subsection}{\numberline {8.1}Page size}{12}{subsection.8.1}% 
 \contentsline {subsection}{\numberline {8.2}Margins}{13}{subsection.8.2}% 
 \contentsline {section}{\numberline {9}Fonts}{13}{section.9}% 
-\contentsline {section}{\numberline {10}Hyphenation and justification}{13}{section.10}% 
-\contentsline {section}{\numberline {11}Widow and Orphans}{14}{section.11}% 
+\contentsline {section}{\numberline {10}Line spacing}{13}{section.10}% 
+\contentsline {section}{\numberline {11}Hyphenation and justification}{14}{section.11}% 
+\contentsline {section}{\numberline {12}Widow and Orphans}{14}{section.12}% 
+\contentsline {section}{\numberline {13}Page numbering}{14}{section.13}% 
 \contentsline {part}{IV\hspace {1em}Final Remarks}{15}{part.4}% 
-\contentsline {section}{\numberline {12}Where to go for help}{15}{section.12}% 
-\contentsline {section}{\numberline {13}Conclusion}{15}{section.13}% 
+\contentsline {section}{\numberline {14}Where to go for help}{15}{section.14}% 
+\contentsline {section}{\numberline {15}Conclusion}{15}{section.15}% 
