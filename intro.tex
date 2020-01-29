@@ -90,9 +90,7 @@ shorter and it's not indented.
   \end{minipage}
 }
 
-\section{Special characters}
-
-\subsection{Non-word characters}
+\subsection{Special characters}
 
 There are a few characters that will cause you some trouble in \latex. These are characters like \textbackslash, \%, \&, and a few others. They won't display properly because they are reserved for specific purposes within the \latex language itself. For most of these, you can just precede the symbol with a backslash (\textbackslash). For the backslash itself, you'll need to use \verb+\textbackslash+.
 
@@ -150,13 +148,25 @@ this enough---heaven-sent.
 
 
 
-
-
 \subsection{Non-English characters}
 
 For accented, non-English, or other less-common characters, you may have to play around with them. Most accented characters will render just fine in \latex, which means you can feel free to type naïve, résumé, japapeño, vis-à-vis, tête-à-tête, façade, Māori, and háček. For other characters that are more specialized or are non-Latin based, you may have to resort to add-on packages to get them to render properly. The first one to check is the \href{http://ctan.math.utah.edu/ctan/tex-archive/macros/latex/required/babel/base/babel.pdf}{babel} package, which has support for over 200 languages, including Arabic, Cherokee, Chinese, Devanagari, Georgian, Greek, Hebrew, Persian, Faroese, Japanese, Korean, Russian, Sanskrit, Vietnamese, and a whole bunch more.
 
-\section{Changing the text}
+
+
+
+
+
+\subsection{Commenting your code}
+
+Under constrution\ldots
+
+
+
+
+
+
+\section{Changing the text (locally)}
 
 \subsection{Fonts}
 
@@ -328,7 +338,7 @@ it back when you're done!
 
 \section{Document structure}
 
-When moving beyond the paragraph level, it's important to know how to add some elements to your document to give it structure. In this section, we look at sections and lists.
+When moving beyond the paragraph level, it's important to know how to add some elements to your document to give it structure and organization. In this section, we look at sections, lists, and footnotes.
 
 \subsection{Headers and subheaders}
 
@@ -378,10 +388,14 @@ If you don't like the numbers, you can suppress them by adding an asterisk after
 
 Technically, it's possible to just include bigger and bolder text to create the illustion of sections, but that's not recommended. The reason is because when you type things as sections, you can generate a table of contents. You can do so by putting \verb+\tableofcontents+ somewhere near the top of your document (perhaps just under the title). That's exactly what I've done in this document.
 
+\subsection{Internal references}
+
+Under constrution\ldots
+
 
 
 \vspace{1em}
-\section{Lists}
+\subsection{Lists}
 
 It doesn't happen very often, but sometimes it's important to make lists of some sort. To make a numbered or a bulleted list, we'll have to introduce the idea of an \textit{environment}. \latex environments can be thought of a more complicated function that applies to a larger passage of text. They begin with a \verb+\begin{}+ tag and end with a \verb+\end{}+ tag.
 
@@ -433,8 +447,22 @@ For more information, including how to customize the symbols, change the numeric
 
 
 
+\subsection{Footnotes}
 
-\section{Text alignment}
+Under constrution\ldots
+
+
+
+\subsection{Long quotations}
+
+Under constrution\ldots
+
+
+
+
+\section{Alignment and spacing}
+
+\subsection{Text alignment and justification}
 
 The main body text in \latex will be justified, meaning text will be flush against both the left and the right margins. To override this behavior, you can use the \verb+\raggedright+, \verb+raggedleft+, or \verb+\centering+ functions before the first paragraph in your document:
 
@@ -470,7 +498,7 @@ The main body text in \latex will be justified, meaning text will be flush again
 For more information on how to apply these changes to your entire document, see \href{https://www.overleaf.com/learn/latex/Text_alignment}{this page in Overleaf}. You may also want to check out the \texttt{ragged2e} package, which implements a more sophisticated method for hyphenation and justification to make your document look a little nicer.
 
 
-\section{Spacing}
+\subsection{Adding and removing white space}
 
 Sometimes, \latex just doesn't quite behave the way you want it to. It is quite common among beginners (and long-time users) to have something that isn't positioned quite right. One little trick for making small adjustments to where things are positioned on the page is with the \verb+\vspace{}+ and \verb+\hspace{}+ commands. As their name implies, they simply add some \textit{vertical} space or some \textit{horizontal} space. Within the brackets, you put how much space should be added, using the same syntax that we saw above with the font sizes (a number plus a unit of measurement).
 
@@ -525,15 +553,101 @@ close.
 
 
 
-
-
-
-
 \newpage
-\part{Global Changes}
+\part{Global settings}
+
+Most of what we've done so far is how to type basic text and how to make small, isolated changes to how that text is displayed. With this foundation, we can now move on to how to make global changes to your document. By global, I mean they're things that you just do one time (usually in the preamble) and they effect the look of the entire document. The majority of these changes will happen in the preamble of your document, often with the use of add-on packages.
+
+You may notice that all \latex documents start by looking the same way. There's a consistent font, the headers are styled a specific way, the text is fully-justified, and the margins are a bit wider than the academic tradition of 1 inch on all sides. The next few sections illustrate how you can change each of these properties, and how to make your document look a little more professional, crisp, and aesthetically pleasing.
 
 
 
+\section{Installing libraries}
+
+Under constrution\ldots
+
+
+
+
+% Caleb is going to cover this, but I feel like this section is pretty well-written so I'll leave it here for now.
+\section{Page properties}
+
+One of the biggest things that will determine the look of your document is how big the paper is and what the margins are. This section shows how to change these using the \verb+geometry+ package.
+
+\subsection{Page size}
+
+By default, \latex will use A4 paper, which is 21cm wide and 29.7cm tall. Note that it's close to, but not exactly, 8.5 inches by 11 inches.
+
+To change the paper size of your document, you'll need to load the \verb+geometry+ package in the preamble of your document. In square brackets before the name, specify what size paper you want. Here, I'll change it to legal paper size, which is a bit longer.
+\begin{verbatim}
+  \usepackage[legalpaper]{geometry}
+\end{verbatim}
+\verb+geometry+ has a handful of paper sizes built in (like \texttt{legalpaper}). To see a full list of paper sizes, look at \href{http://texdoc.net/texmf-dist/doc/latex/geometry/geometry.pdf}{section 5.1 of the package's documentation}.
+
+In the event that you're a normal human and don't know the paper sizes by their official name, you can also specify an explicit size using the \texttt{paperwidth} and \texttt{paperheight} arguments. This creates a half-sized sheet of paper, which is used for some books.
+\begin{verbatim}
+  \usepackage[paperwidth=5.5in, paperheight=8.5in]{geometry}
+\end{verbatim}
+Note that UGA dissertations must be exactly 8.5 by 11 for them to be able to be bound at Tate Print and Copy. My recommendation is to specify these dimensions exactly at the top of your document rather than relying on the default A4 size.
+
+\subsection{Margins}
+
+The margins of your document are also controlled with \texttt{geometry}. The easiest way to specify them is by adding the \texttt{margin} option and tell how big you want them to be. Here's how you'd get 8.5$\times$11 paper and 1 inch margins on all sides
+\begin{verbatim}
+  \usepackage[paperwidth=8.5in,
+              paperheight=11in,
+              margin=1in]{geometry}
+\end{verbatim}
+(Note that I separated out these components onto separate lines simply because there wasn't enough space to do it in one line. In your code, you can do the same thing if you'd like, in case it helps make your code clearer.)
+
+By the way, an alternative syntax for the above block of code is this:
+\begin{verbatim}
+  \usepackage{geometry}
+  \geometry{paperwidth=8.5in, paperheight=11in, margin=2in}
+\end{verbatim}
+They are identical under-the-hood and will accomplish the same task for you.
+
+If you would like to specify specific margins, you can do that as well.
+\begin{verbatim}
+  \usepackage{geometry}
+  \geometry{paperwidth=8.5in, paperheight=11in,
+            left=1in, right=1in, top=1in, bottom=1.25in}
+\end{verbatim}
+Typographically, it's nice to have the bottom margin about a quarter inch bigger than the top margin to achieve the appearance of a more balanced page.
+
+There are many more aspects of the page's layout that you can change with the \texttt{geometry} package besides the page size and margins. I encourage you to look at \href{https://www.overleaf.com/learn/latex/Page_size_and_margins}{this guide from Overleaf}, \href{https://en.wikibooks.org/wiki/LaTeX/Page_Layout}{this guide from WikiBooks}, and of course \href{http://texdoc.net/texmf-dist/doc/latex/geometry/geometry.pdf}{the package's documentation}.
+
+
+
+
+\section{Fonts}
+
+Link to the list of fonts
+
+
+
+
+\setion{Line spacing}
+
+\section{Hyphenation and justification}
+
+Look through the typsetting book. What did I do for my dissertation? Also add the code for overfull lines.
+
+\section{Widow and Orphans}
+
+Also mention ragged bottom in case that's relevant.
+
+\section{Page numbering}
+
+
+
+% Another part on intermediate topics:
+% In Caleb's
+%   images
+%   tables
+%   citations
+%   sidenotes
+%   math mode
 
 
 
@@ -545,7 +659,11 @@ close.
 
 \section{Where to go for help}
 
-You may feel overwhelmed at first. Fortunately \latex has been around for a long time, and there's a \textit{lot} of free resources online. One really good place to start is \href{https://www.overleaf.com/learn/latex/Main_Page}{Overleaf's help pages}.
+You may feel overwhelmed at first. Fortunately \latex has been around for a long time, and there's a \textit{lot} of free resources online.
+
+One really good place to start is \href{https://www.overleaf.com/learn/latex/Main_Page}{Overleaf's help pages}.
+
+Another good one is \href{https://en.wikibooks.org/wiki/LaTeX}{WikiBooks}.
 
 
 
