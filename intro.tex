@@ -6,11 +6,27 @@
 % hyperlinks to external websites
 \usepackage{hyperref}
 
+
 \usepackage[T1]{fontenc}  % access \textquotedbl
 \usepackage{textcomp}     % access \textquotesingle
 \usepackage{xspace}
 
+% paper size and margins
+% \usepackage{geometry}
+%\geometry{paperwidth=8.5in, paperheight=11in,
+%          left=1in, right=1in, top=1in, bottom=1.25in}
 
+% Font
+%\usepackage{ebgaramond}
+%\usepackage[cmintegrals,cmbraces]{newtxmath}
+%\usepackage{ebgaramond-maths}
+
+% Line spacing
+%\renewcommand{\baselinestretch}{1.1}
+
+\usepackage[all]{nowidow}
+
+\usepackage[activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,factor=1100,stretch=10,shrink=10]{microtype}
 
 \newcommand{\latex}{\LaTeX\xspace}
 
@@ -163,9 +179,7 @@ this enough---heaven-sent.
 }
 \hspace{1em}
 
-For additional help on special characters in \latex, see \href{https://en.wikibooks.org/wiki/LaTeX/Special_Characters}{this Wikibooks page}. As far as I know, any character can be typed in \latex: you may have to install additional libraries to get it, but do not be discouraged if you cannot easily get a symbol to appear. Someone else has likely needed that symbol before and has solved your problem.
-
-
+For additional help on special characters in \latex, see \href{https://en.wikibooks.org/wiki/LaTeX/Special_Characters}{this Wikibooks page}. As far as I know, any character can be typed in \latex: you may have to install additional packages to get it, but do not be discouraged if you cannot easily get a symbol to appear. Someone else has likely needed that symbol before and has solved your problem.
 
 \subsection{Non-English characters}
 
@@ -647,12 +661,12 @@ The main body text in \latex will be justified, meaning text will be flush again
 }
 \vspace{1em}
 
-For more information on how to apply these changes to your entire document, see \href{https://www.overleaf.com/learn/latex/Text_alignment}{this page in Overleaf}. You may also want to check out the \texttt{ragged2e} package, which implements a more sophisticated method for hyphenation and justification to make your document look a little nicer.
+For more information on how to apply these changes to your entire document, see \href{https://www.overleaf.com/learn/latex/Text_alignment}{this page in Overleaf}. You may also want to check out the \texttt{ragged2e} package, which implements a more sophisticated method for hyphenation to make your document look a little nicer.\footnote{Be aware though that \texttt{ragged2e} is no longer being maintained.}
 
 
 \subsection{Adding and removing white space}
 
-Sometimes, \latex just doesn't quite behave the way you want it to. It is quite common among beginners (and long-time users) to have something that isn't positioned quite right. One little trick for making small adjustments to where things are positioned on the page is with the \verb+\vspace{}+ and \verb+\hspace{}+ commands. As their name implies, they simply add some \textit{vertical} space or some \textit{horizontal} space. Within the brackets, you put how much space should be added, using the same syntax that we saw above with the font sizes (a number plus a unit of measurement).
+Sometimes, \latex just doesn't quite behave the way you want it to. It is quite common among beginners (and long-time users) to have something that isn't positioned quite right. One little trick for making small adjustments to where things are positioned on the page is with \verb+\vspace{}+ and \verb+\hspace{}+. As their names imply, they simply add some \textit{vertical} space or some \textit{horizontal} space. Within the brackets, you put how much space should be added, using the same syntax that we saw above with the font sizes (a number plus a unit of measurement).
 
 \vspace{1em}
 \begin{minipage}[t]{0.5\textwidth}
@@ -674,14 +688,14 @@ centimeter down.
   \end{minipage}
 }
 
-A very useful unit of measurement to be aware of is the \textit{em}. Despite what the name implies, it is not the width of the character \textit{M}, but rather it is the \textit{height} of your text. So if you're typing in 10-point font, an em is 12 points. If you want to insert a one-line break between elements on the page, \verb+\vspace{em}+ is a really good way to do that.\footnote{In fact, the gaps between these sample code snippets and the paragraph following them are created in this way.}
+A very useful unit of measurement to be aware of is the \textit{em}. Despite what the name implies, it is not (necessarily) the width of the character \textit{M}, but rather it is the \textit{height} of your text. So if you're typing in 10-point font, an em is 10 points wide. If you want to insert a one-line break between elements on the page, \verb+\vspace{em}+ is a really good way to do that.
 
 Also, it's good to know that you can put negative numbers as the size of the gap. This is useful in case you need to squeeze things together or remove an indent or something.
 
 \vspace{1em}
 \begin{minipage}[t]{0.45\textwidth}
   \begin{verbatim}
-\hspace{-2em}This paragraph has
+\hspace{-1em}This paragraph has
 a negative indent and spills
 into the edge of the box.
 
@@ -693,30 +707,38 @@ close.
 \hspace{2em}
 \fbox{
   \begin{minipage}[t]{0.4\textwidth}
-    \hspace{-2em}This paragraph has a negative indent and spills into the edge of the box.
+    \hspace{-1em}This paragraph has a negative indent and spills into the edge of the box.
 
     \vspace{-0.5em}
     This paragraph is uncomfortably close.
   \end{minipage}
 }
+I find myself using \verb+\vspace{1em}+ quite a bit if some element on the page, like a table, figure, or something else, doesn't have enough space before or after it. In fact, in this handout, the gaps between the sample code snippets and the paragraph following them are created in this way.
 
-
-
+For more information about spaces, including how to account for optional spaces at the ends of lines or pages, see \href{https://en.wikibooks.org/wiki/LaTeX/Lengths}{this page in Wikibooks}. Also, sometimes you'll find that commands like \verb+\LaTeX+ sort of ``eat'' up the following space. You can insert sort of an optional space after commands with the \verb+\xspace+ command in the \href{https://ctan.org/pkg/xspace?lang=en}{\texttt{xspace} package}.
 
 
 
 \newpage
 \part{Global settings}
 
-Most of what we've done so far is how to type basic text and how to make small, isolated changes to how that text is displayed. With this foundation, we can now move on to how to make global changes to your document. By global, I mean they're things that you just do one time (usually in the preamble) and they effect the look of the entire document. The majority of these changes will happen in the preamble of your document, often with the use of add-on packages.
+Most of what we've done so far is how to type basic text and how to make small, isolated changes to how that text is displayed. With this foundation, we can now move on to how to make global changes to your document. By global, I mean they're things that you just do one time (usually in the preamble) and they effect the look of the entire document. The majority of these changes will happen in the preamble of your document, often with the use of add-on packages. This document more or less uses the default \latex settings I won't be able to easily demonstrate what these changes look like in a document.
 
 You may notice that all \latex documents start by looking the same way. There's a consistent font, the headers are styled a specific way, the text is fully-justified, and the margins are a bit wider than the academic tradition of 1 inch on all sides. The next few sections illustrate how you can change each of these properties, and how to make your document look a little more professional, crisp, and aesthetically pleasing.
 
 
 
-\section{Installing libraries}
+\section{Installing packages}
 
-Under constrution\ldots
+If you're using Overleaf, this section is not super relevant because Overleaf installs and handles packages for you automatically. But for those of you that are working offline, it's important to know how to work with add-on packages.
+
+\LaTeX comes installed with several dozen packages as part of its standard distribution. But occasionally you will need to use some more specialized package for whatever reason.
+
+The easiest and most superficial way to download and use a package is to download it into the directory where your \latex files are.
+
+
+
+For more information on installing packages, see \href{https://en.wikibooks.org/wiki/LaTeX/Installing_Extra_Packages}{this Wikibooks page} and \href{http://www.volkerschatz.com/tex/tpacks.html}{this documentation} from CTAN.
 
 
 
@@ -771,41 +793,107 @@ There are many more aspects of the page's layout that you can change with the \t
 
 
 
+\subsection{Page numbering}
+
+
+
+\section{Paragraph and line properties}
+
+\subsection{Line spacing}
+\label{sec:line_spacing}
+
+Line spacing (single-spaced, double-spaced, etc.) is an important part of the typography of your document. There is no perfect number because it depends on a variety of factors like what font you're using, the size, how wide your page is, etc.
+
+The easiest way to set the spacing is be redefining a function called \verb+\baselinestretch+, which takes the default spaacing and stretches it by some amount. You can redefine like this: \verb+\renewcommand{\baselinestretch}{1.6}+. The value there is not terribly intuitive, but by setting it \texttt{1.6} it'll give you double spacing. For one and a half spacing, set it to \texttt{1.3}. I'd recommend something a little smaller like \texttt{1.1}, but do what you think looks best.\footnote{In my opinion double-spacing is far too much. It's reminiscent of typewriter days, it wastes paper, and the fact that you're using \latex means that we certainly don't need to emulate what a typewriter does. At the same time though, single-spaced is a little too narrow. I appreciate that sometimes people like to strike a balance and go for maybe 1.5 spacing, but even that is a little too much.}
+
+\subsection{Line breaks}
+
+It's important to at least give some thought to hyphenation and justification in your document. Because text must flow from one line to the next, \latex has to determine where the line should end. When a word spills over into the margin, should it go on the next line, should the previous words squeeze together a little bit to make room, or should it be hyphenated? \latex has to make these decisions with every single line in your document. And it usually does a pretty good job. But sometimes it doesn't.
+
+The simplest way to control for where line breaks are is by including specific codes in your document to help \latex out a bit. For example, if there's a particularly long word that \latex doens't want to split up, you can insert a ``soft hyphen'', meaning \latex will use that spot for hyphenation if it needs to, but if it doesn't, the hypen isn't there. The code for this is just \texttt{-}.
+
+In this example, \latex but the hyphen between the \textit{l} and the \textit{i}, but I think it makes more sense to put it between the \textit{i} and the \textit{g}, so I forced it there with a soft hyphen. Note that there are other soft hypens in the word, but they're not displayed since they're not at the end of the line.
+
+\vspace{1em}
+\begin{minipage}[t]{0.45\textwidth}
+  \begin{verbatim}
+Mary Poppins sings supercalifrag
+ilisticexpialidocious!
+
+Mary Poppins sings super\-cali\-
+fragilistic\-expiali\-docious!
+  \end{verbatim}
+\end{minipage}
+\hspace{2em}
+\fbox{
+  \begin{minipage}[t]{0.4\textwidth}
+    Mary Poppins sings supercalifragilisticexpialidocious!
+
+    Mary Poppins sings super\-cali\-fragilistic\-expiali\-docious!
+  \end{minipage}
+}
+Alternatively, if you want a break to happen at a space, try putting \verb+\linebreak+ there instead of the space.
+
+Kind of the opposite problem is that sometimes \latex will put a line break when you don't want it to. In this example, there's a break between \textit{Mrs.} and \textit{Smith} and I don't like it. I can use a \textit{non-breaking space} with a tilde (\verb+~+), instead of a regular space, and it'll tell \latex to never put a line break there.
+
+\vspace{1em}
+\begin{minipage}[t]{0.45\textwidth}
+  \begin{verbatim}
+I had a teacher named Mrs. Smith
+who loved Halloween.
+
+I had a teacher named Mrs.~Smith
+who loved Halloween.
+  \end{verbatim}
+\end{minipage}
+\hspace{2em}
+\fbox{
+  \begin{minipage}[t]{0.4\textwidth}
+    I had a teacher named Mrs. Smith who loved Halloween.
+
+    I had a teacher named Mrs.~Smith who loved Halloween.
+  \end{minipage}
+}
+It'll move things around to comply with your imposed rule. Of course, now there's the separate problem of the spaces being too wide between words.
+
+Adding soft hypens and non-breaking spaces is handy when you need to force a very small change. But it can get annoying because as soon as you change some text, it'll move the word around and you may have a whole different set of problems. But you can tell \latex to avoid some of these problems altogether by implementing a more sophisticated algorithm for hyphenation (see the next section).
+
+In some cases, you may want to disable hyphenation entirely. This is usually not recommended, but it's useful to see how. You can do this by putting the command \verb+\hyphenpenalty=100000+ somewhere near the top of your body text (not the preamble). The details of this aren't super important, but \latex assigns penalties to certain things if a conflict arises, and this sets it to some huge number so that any alternative is better than hyphenation. Sometimes you may not want to remove them entirely, but you can adjust the degree to which hyphenation occurs by setting that penalty lower (to perhaps \texttt{1000}) while also adding \verb+\tolerance=1000+ (and adjusting it from there). It may take some toying around to get the results you want.
+
+\subsection{Handling overfull lines}
+\label{sec:hyph_and_just}
+
+Once you've written several paragraphs in your document, you may find that there are lots of warnings when you compile, saying there are a bunch of ``overfull'' lines. What this basically means is that there's text that is spilling into the margins and \latex couldn't fix it for you. It gives you a warning message so that you can take care of it. You can try adding soft hyphens, non-breaking spaces, or rewriting the text a little bit to resolove the problem, but sometimes that just creates a new set of overfull lines.
+
+A bandaid over this problem is to add \verb+\sloppy+ somewhere near the top of your document. It will force \latex to prevent these overfull lines. The results may be good enough, but you may find occasional lines that just didn't end up looking right (the spaces between words/letters is too wide or too narrow). But if you're just sick of those warning errors, this is a way to shut most of them up.
+
+If you really want to take full control over how \latex does its hyphenation and justification, take a look at the \href{https://ctan.org/pkg/microtype?lang=en}{\texttt{microtype} package}. It's far too much to discuss in this introductory workshops, so I'll let you look through the \href{http://mirrors.ibiblio.org/CTAN/macros/latex/contrib/microtype/microtype.pdf}{documentation} yourself (you may need to learn a little about typography to fully understand the jargon). I will say though that after implementing it in my dissertation, it really looked sharp. The best tutorial I've seen, which also explains the little nuances and details you may not have thought of, is \href{http://www.khirevich.com/latex/microtype/}{this one} by Siarhei Khirevich.
+
+
+\subsection{Widows and orphans}
+
+Sometimes you may find that a paragraph starts at the last line of a page, and spills over onto the next page. Some people find this one-line-at-the-end-of-the-page paragraph, which are called \textit{widows}, ugly. Similarly, when the last line of a paragraph is the first line of a new page, that's called an \textit{orphan}.
+
+There are different strategies for preventing widows and orphans. \href{https://texfaq.org/FAQ-widows}{This TeXFAQ} page recommends playing around with the penalty, like you did with hyphenation above, which will force \latex to do something lik making the bottom margin bigger to force a widow to start on the next page or something. For a document like this handout that has many small paragraphs and code chunks, this effect is more apparent, but for a dissertation with potentially many longer paragraphs, it's not as noticeable. Alternativly, \latex may shrink the space between lines just a tiny bit for just one page to allow room for the orphan to join the rest of its paragraph.
+
+One easy way is to remove widows and orphans entirely is to put \verb+\usepackage[all]{nowidow}+ in your preable and \latex will do a mxiture of these techniques. I've found though that sometimes it'll add extra space between paragraphs, and it looked like there was some weird double-spacing thing going on between them. So I found that adding \verb+\raggedbottom+ helps with that, and forces any extra space to occur at the bottom of the page (in other words, it allows for a flexible bottom margin size).
 
 \section{Fonts}
 \label{sec:fonts}
 
-Link to the list of fonts
+Some people like the default font used in \latex. Others don't. If you want to change the font, you're in luck because there are many available to you. Unfortunately, changing the font in \latex is not as straightforward as it is in other typsetting programs.
 
+The best place I've found for fonts is \href{https://tug.org/FontCatalogue/}{The \latex Font Catalogue}. This site contains hundreds of fonts for you to choose from, conveniently organized by their properties (serif vs. sans serif, for example) and whether they support math symbols.
 
+For example, let's say I looked through the Font Catalogue and decide I want to change the font to Garamond. It's a classic and (and in my opinion) sophisticated-looking font.\footnote{This is the font I used for my dissertation so I'm little biased.}. On the page for \href{https://tug.org/FontCatalogue/garamond/}{Garamond} on Font Catalogue, I see under the ``Usage'' section, the following code:
+\begin{verbatim}
+  \usepackage[cmintegrals,cmbraces]{newtxmath}
+  \usepackage{ebgaramond-maths}
+  \usepackage[T1]{fontenc}
+\end{verbatim}
+All I need to do is copy those three lines of code to somewhere in my preamble and the PDF will use that new font.
 
-
-\section{Line spacing}
-\label{sec:line_spacing}
-
-Double spaced, etc. Perhaps join in with geometry package above.
-
-\section{Hyphenation and justification}
-
-Look through the typsetting book. What did I do for my dissertation? Also add the code for overfull lines.
-
-\section{Widow and Orphans}
-
-Also mention ragged bottom in case that's relevant.
-
-\section{Page numbering}
-
-
-
-% Another part on intermediate topics:
-% In Caleb's
-%   images
-%   tables
-%   citations
-%   sidenotes
-%   math mode
-
-
+Now, be aware that not all fonts are straightforward like that. Each one is a little different and you may be required to do more or less work to get it to render properly. For example, Garamond only works because I've got it installed on my computer already. You may need to consult the font package's documentation (there should be a link at the bottom of its Font Catalogue page) and take a look at the readme to see how you can get it to work. Sometimes, you must actually buy the font in order to use it. Also, the way to change fonts may depend on what \latex compiler you're using.
 
 
 
@@ -815,19 +903,19 @@ Also mention ragged bottom in case that's relevant.
 
 \section{Where to go for help}
 
-You may feel overwhelmed at first. Fortunately \latex has been around for a long time, and there's a \textit{lot} of free resources online.
+You may feel overwhelmed at first. Fortunately \latex has been around for a long time, and there's a \textit{lot} of free resources online. Here are the main ones that I've linked to a lot throughout this document:
 
-One really good place to start is \href{https://www.overleaf.com/learn/latex/Main_Page}{Overleaf's help pages}.
-
-Another good one is \href{https://en.wikibooks.org/wiki/LaTeX}{WikiBooks}.
-
+\begin{itemize}
+  \item \href{https://www.overleaf.com/learn/latex/Main_Page}{Overleaf's help pages} does a great job at explaining the basics of how to use \latex. I've used them many times myself. They include lots of actual \latex files that use this code, so you can tinker around with them in sort of a sandbox mode without messing up your file. They purposely don't go into too much detail so that beginners don't get too overwhelmed.
+  \item Another good one is \href{https://en.wikibooks.org/wiki/LaTeX}{WikiBooks}. This is a Wiki-fied version of a free eBook (you can get it as a PDF too). This one goes into more depth than the Overleaf site, on more topics. It will explain how to do things several different ways, weighing the pros and cons of each one. It may be a little intimidating at first, but just as any skill, with some practice you'll be able to use it.
+  \item Every package that I've mentioned, any many many more, can be found on \href{https://ctan.org}{CTAN}. Each package also has an in-depth documentation to go along with it that will go into more detail than any tutorial could. It will explain all the options when using that package, and will often show lots of example code and usage. Some documentation is better than others, and again it takes some skill. But if you want to know more about something that I've mentioned, the documentation is where you'll find your answer.
+\end{itemize}
+As always, countless people have written blog posts and other help guides, which are available for free online. Google is your friend. Do not be afraid to ask the internet for help because we all do it, even the pros.
 
 
 \section{Conclusion}
 
-This document has outlined some of the key components of \latex. With these skills, you should be able to write the majority of your dissertation. Other topics like mathmatical formulas, images, and tables will be covered at a later date.
-
-
+This document has outlined some of the key components of \latex. With these skills, you should be able to write the majority of your dissertation. Other topics like mathmatical formulas, images, and tables will be covered at a later date. Learning \latex is a useful skill and will help you think more about layout and typography. Above all though, most of us who use it find it to be kind of fun. We avoid the headaches of Word and other typesetting programs, and our documents have the potential to look stunning. Above all, the document should be readable, and I think \latex is an excellent way to do that for your readers.
 
 
 \end{document}

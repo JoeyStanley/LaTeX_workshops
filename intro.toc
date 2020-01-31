@@ -20,16 +20,18 @@
 \contentsline {section}{\numberline {6}Alignment and spacing}{12}{section.6}% 
 \contentsline {subsection}{\numberline {6.1}Text alignment and justification}{12}{subsection.6.1}% 
 \contentsline {subsection}{\numberline {6.2}Adding and removing white space}{13}{subsection.6.2}% 
-\contentsline {part}{III\hspace {1em}Global settings}{14}{part.3}% 
-\contentsline {section}{\numberline {7}Installing libraries}{14}{section.7}% 
-\contentsline {section}{\numberline {8}Page properties}{14}{section.8}% 
-\contentsline {subsection}{\numberline {8.1}Page size}{14}{subsection.8.1}% 
-\contentsline {subsection}{\numberline {8.2}Margins}{15}{subsection.8.2}% 
-\contentsline {section}{\numberline {9}Fonts}{15}{section.9}% 
-\contentsline {section}{\numberline {10}Line spacing}{15}{section.10}% 
-\contentsline {section}{\numberline {11}Hyphenation and justification}{16}{section.11}% 
-\contentsline {section}{\numberline {12}Widow and Orphans}{16}{section.12}% 
-\contentsline {section}{\numberline {13}Page numbering}{16}{section.13}% 
-\contentsline {part}{IV\hspace {1em}Final Remarks}{17}{part.4}% 
-\contentsline {section}{\numberline {14}Where to go for help}{17}{section.14}% 
-\contentsline {section}{\numberline {15}Conclusion}{17}{section.15}% 
+\contentsline {part}{III\hspace {1em}Global settings}{15}{part.3}% 
+\contentsline {section}{\numberline {7}Installing packages}{15}{section.7}% 
+\contentsline {section}{\numberline {8}Page properties}{15}{section.8}% 
+\contentsline {subsection}{\numberline {8.1}Page size}{15}{subsection.8.1}% 
+\contentsline {subsection}{\numberline {8.2}Margins}{16}{subsection.8.2}% 
+\contentsline {subsection}{\numberline {8.3}Page numbering}{17}{subsection.8.3}% 
+\contentsline {section}{\numberline {9}Paragraph and line properties}{17}{section.9}% 
+\contentsline {subsection}{\numberline {9.1}Line spacing}{17}{subsection.9.1}% 
+\contentsline {subsection}{\numberline {9.2}Line breaks}{17}{subsection.9.2}% 
+\contentsline {subsection}{\numberline {9.3}Handling overfull lines}{18}{subsection.9.3}% 
+\contentsline {subsection}{\numberline {9.4}Widows and orphans}{19}{subsection.9.4}% 
+\contentsline {section}{\numberline {10}Fonts}{19}{section.10}% 
+\contentsline {part}{IV\hspace {1em}Final Remarks}{21}{part.4}% 
+\contentsline {section}{\numberline {11}Where to go for help}{21}{section.11}% 
+\contentsline {section}{\numberline {12}Conclusion}{21}{section.12}% 
