@@ -5,31 +5,31 @@
 \contentsline {section}{\numberline {3}Basic text}{4}{section.3}% 
 \contentsline {subsection}{\numberline {3.1}Special characters}{4}{subsection.3.1}% 
 \contentsline {subsection}{\numberline {3.2}Non-English characters}{5}{subsection.3.2}% 
-\contentsline {subsection}{\numberline {3.3}Commenting your code}{5}{subsection.3.3}% 
+\contentsline {subsection}{\numberline {3.3}Commenting your code}{6}{subsection.3.3}% 
 \contentsline {section}{\numberline {4}Changing the text (locally)}{6}{section.4}% 
-\contentsline {subsection}{\numberline {4.1}Fonts}{6}{subsection.4.1}% 
-\contentsline {subsection}{\numberline {4.2}Captitalization}{6}{subsection.4.2}% 
-\contentsline {subsection}{\numberline {4.3}Typefaces}{6}{subsection.4.3}% 
-\contentsline {subsection}{\numberline {4.4}Size}{6}{subsection.4.4}% 
-\contentsline {section}{\numberline {5}Document structure}{8}{section.5}% 
-\contentsline {subsection}{\numberline {5.1}Headers and subheaders}{8}{subsection.5.1}% 
-\contentsline {subsection}{\numberline {5.2}Internal references}{9}{subsection.5.2}% 
-\contentsline {subsection}{\numberline {5.3}Lists}{9}{subsection.5.3}% 
-\contentsline {subsection}{\numberline {5.4}Footnotes}{9}{subsection.5.4}% 
-\contentsline {subsection}{\numberline {5.5}Long quotations}{9}{subsection.5.5}% 
-\contentsline {section}{\numberline {6}Alignment and spacing}{10}{section.6}% 
-\contentsline {subsection}{\numberline {6.1}Text alignment and justification}{10}{subsection.6.1}% 
-\contentsline {subsection}{\numberline {6.2}Adding and removing white space}{10}{subsection.6.2}% 
-\contentsline {part}{III\hspace {1em}Global settings}{12}{part.3}% 
-\contentsline {section}{\numberline {7}Installing libraries}{12}{section.7}% 
-\contentsline {section}{\numberline {8}Page properties}{12}{section.8}% 
-\contentsline {subsection}{\numberline {8.1}Page size}{12}{subsection.8.1}% 
-\contentsline {subsection}{\numberline {8.2}Margins}{13}{subsection.8.2}% 
-\contentsline {section}{\numberline {9}Fonts}{13}{section.9}% 
-\contentsline {section}{\numberline {10}Line spacing}{13}{section.10}% 
-\contentsline {section}{\numberline {11}Hyphenation and justification}{14}{section.11}% 
-\contentsline {section}{\numberline {12}Widow and Orphans}{14}{section.12}% 
-\contentsline {section}{\numberline {13}Page numbering}{14}{section.13}% 
-\contentsline {part}{IV\hspace {1em}Final Remarks}{15}{part.4}% 
-\contentsline {section}{\numberline {14}Where to go for help}{15}{section.14}% 
-\contentsline {section}{\numberline {15}Conclusion}{15}{section.15}% 
+\contentsline {subsection}{\numberline {4.1}Text formatting}{7}{subsection.4.1}% 
+\contentsline {subsection}{\numberline {4.2}Captitalization}{7}{subsection.4.2}% 
+\contentsline {subsection}{\numberline {4.3}Font families}{7}{subsection.4.3}% 
+\contentsline {subsection}{\numberline {4.4}Size}{8}{subsection.4.4}% 
+\contentsline {section}{\numberline {5}Document structure}{9}{section.5}% 
+\contentsline {subsection}{\numberline {5.1}Headers and subheaders}{9}{subsection.5.1}% 
+\contentsline {subsection}{\numberline {5.2}Internal references}{10}{subsection.5.2}% 
+\contentsline {subsection}{\numberline {5.3}Lists}{11}{subsection.5.3}% 
+\contentsline {subsection}{\numberline {5.4}Footnotes}{11}{subsection.5.4}% 
+\contentsline {subsection}{\numberline {5.5}Long quotations}{12}{subsection.5.5}% 
+\contentsline {section}{\numberline {6}Alignment and spacing}{12}{section.6}% 
+\contentsline {subsection}{\numberline {6.1}Text alignment and justification}{12}{subsection.6.1}% 
+\contentsline {subsection}{\numberline {6.2}Adding and removing white space}{13}{subsection.6.2}% 
+\contentsline {part}{III\hspace {1em}Global settings}{14}{part.3}% 
+\contentsline {section}{\numberline {7}Installing libraries}{14}{section.7}% 
+\contentsline {section}{\numberline {8}Page properties}{14}{section.8}% 
+\contentsline {subsection}{\numberline {8.1}Page size}{14}{subsection.8.1}% 
+\contentsline {subsection}{\numberline {8.2}Margins}{15}{subsection.8.2}% 
+\contentsline {section}{\numberline {9}Fonts}{15}{section.9}% 
+\contentsline {section}{\numberline {10}Line spacing}{15}{section.10}% 
+\contentsline {section}{\numberline {11}Hyphenation and justification}{16}{section.11}% 
+\contentsline {section}{\numberline {12}Widow and Orphans}{16}{section.12}% 
+\contentsline {section}{\numberline {13}Page numbering}{16}{section.13}% 
+\contentsline {part}{IV\hspace {1em}Final Remarks}{17}{part.4}% 
+\contentsline {section}{\numberline {14}Where to go for help}{17}{section.14}% 
+\contentsline {section}{\numberline {15}Conclusion}{17}{section.15}% 

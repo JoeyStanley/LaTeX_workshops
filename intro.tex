@@ -3,16 +3,22 @@
 \title{Introduction to \latex:\\Basic typesetting}
 \author{Joey Stanley}
 
-
-\usepackage{hyperref} % hyperlinks to external websites
+% hyperlinks to external websites
+\usepackage{hyperref}
 
 \usepackage[T1]{fontenc}  % access \textquotedbl
 \usepackage{textcomp}     % access \textquotesingle
 \usepackage{xspace}
 
+
+
 \newcommand{\latex}{\LaTeX\xspace}
 
 \begin{document}
+
+% Make the hyphens word and prevent overfull boxes
+\sloppy
+
 \maketitle{}
 
 \tableofcontents
@@ -22,31 +28,39 @@
 
 \section{Introduction}
 
-Today's workshop will introduce a lot of the basics of \latex. The goal by the end of the hour is for you to be able to typset a basic document. Some of the more sophisticated features---including those that you'll need for a full dissertation---will be covered in later workshops. Of course, there are countless tutorials and helps available to you online.
+Today's workshop will introduce the basics of using \latex. The goal by the end of the hour is for you to be able to typset a basic document. Some of the more sophisticated features---including those that you'll need for a full dissertation---will be covered in later workshops. This handout contains more detail than what we will have to cover in the workshop itself, so be sure to look through it for additional comments and examples. Of course, there are countless tutorials and helps available to you online.
 
-It is assumed that you already have some way to use \latex. You can do this on your own computer with a variety of software packages (Atom, TeXStudio, TeXShop, etc.) or you can do it entirely online using Overleaf.com. The concepts that will be covered today will apply regardless of which software you use. If you need help, please get my attention as soon as possible.
+It is assumed that you already have some way to use \latex. You can do this on your own computer with a variety of software packages (Atom, TeX\-Studio, TeXShop, etc.), which allow you some additional flexibility and the ability to work wherever you are. Or you can do it entirely online using Overleaf.com, which is probably easier for beginners. The concepts that will be covered today will apply regardless of which software you use. If you need help, please get my attention as soon as possible.
 
+\latex has a notoriously steep learning curve. This document will not be able to cover everything. Fortunately there is lots of help online. The two help pages I use the most are Overleaf's documentation, and Wikibooks. I will link to these sites throughout the handout so you can read in greater detail and learn more.
 
 
 \section{Basic document structure}
 
-To get started, the most basic structure you'll need in a \latex file is this:
+Let's get started. The most basic code you'll need in a \latex file is this:
 \begin{verbatim}
   \documentclass{article}
+    ...
   \begin{document}
     ...
   \end{document}
 \end{verbatim}
-Everything before the \verb+\begin{document}+ line is called the \textit{preamble}, and it's where you'll put information to customize your document. Everything after that (but before \verb+\end{document}+) is the body of your text, and that's where you'll do most of the typing. For now, we'll leave the preamble alone and we'll just start typing stuff in the body.
+Everything between \verb+\documentclass{article}+ and the \verb+\begin{document}+ line is called the \textit{preamble}, and it's where you'll put information to customize your entire document. Everything after \verb+\begin{document}+ and before \verb+\end{document}+ is the body of your text, which is where you'll do most of the typing.
+
+In this handout, Part II will mostly cover the body of your document and Part III will cover things you can add to your preamble. Let's get started then.
+
+
+
+
 
 \newpage
 \part{Basic Typesetting}
 
 \section{Basic text}
 
-Once you're in the body of your document, you can type almost whatever you want. If you're considering switching over from Word to \latex, for example, the vast majority of what you copy and paste over will transfer just fine. However, there are a few things to consdier.
+Once you're in the body of your document, you can type almost whatever you want. If you're considering switching over from Word to \latex, for example, the vast majority of what you copy and paste over will transfer just fine. However, there are a few things to consider.
 
-First, to make a new line in \latex, you need to hit enter twice, so that in your text editor there is a blank line between paragraphs. If you only hit enter once, \latex won't know that you want to do a new line and it'll actually continue from the previous paragraph. Here's an example with what your code might look like on the left, and what the PDF might look like on the right (this template of code + PDF will be used throughout this document):
+First, to make a new line in \latex, you need to hit enter twice, so that in your text editor there is a blank line between paragraphs. If you only hit enter once, \latex won't know that you want to do a new line and it'll actually continue from the previous paragraph. Here's an example with what your code might look like on the left, and what the PDF might look like on the right:
 
 \vspace{1em}
 \begin{minipage}[t]{0.5\textwidth}
@@ -65,6 +79,7 @@ Paragraph three.
     Paragraph three.
   \end{minipage}
 }
+This template of code + PDF will be used for examples throughout this handout.
 
 By default, \latex will do some indentation for you at the start of each paragraph. You can suppress indentation for a paragraph by putting \verb+\noindent+. just before it:
 
@@ -89,16 +104,17 @@ shorter and it's not indented.
     This paragraph is slightly shorter and it's not indented.
   \end{minipage}
 }
+Note that the first paragraph after a header will not be indented, following typicaly typographic conventions.
 
 \subsection{Special characters}
 
-There are a few characters that will cause you some trouble in \latex. These are characters like \textbackslash, \%, \&, and a few others. They won't display properly because they are reserved for specific purposes within the \latex language itself. For most of these, you can just precede the symbol with a backslash (\textbackslash). For the backslash itself, you'll need to use \verb+\textbackslash+.
+There are a few characters that will cause you some trouble in \latex. These are characters like \textbackslash, \%, \&, and a few others. They won't display properly because they are reserved for specific purposes within the \latex scripting language itself. For most of these symbols, you can just precede it with a backslash (\textbackslash). In the next example, notice that the text stops at the \% sign after the \texttt+75+.
 
 \vspace{1em}
 \begin{minipage}[t]{0.5\textwidth}
   \begin{verbatim}
 Made up numbers are used in
-\latex documents 75% and 90% of
+\LaTeX documents 75% and 90% of
 the time!
 
 But, almost 100\% of the time it
@@ -112,8 +128,9 @@ doesn't matter!
     But, almost 100\% of the time it doesn't matter!
   \end{minipage}
 }
+The backslash itself is a little tricker, and you'll need to use the command \verb+\textbackslash+ for it to appear.
 
-One thing that may not be intuitive is how quotation marks work. Because English text typically uses the curly quotes (``\ldots'') instead of straight quotes (\textquotedbl \ldots \textquotedbl), we have to type opening and closing quotation marks differently. For opening quotes, use the tick $`$ character (which is found to the left of the 1 key on my keyboard). For closing quotation marks, use just the regular apostrophe. For double quotes, just two two ticks or two apostophes. There's not need for the actual double quotation character. For apostrophes, just use the apostrophe.
+One thing that may not be intuitive is how quotation marks work. Because English text typically uses the curly quotes (``\ldots'') instead of straight quotes (\textquotedbl \ldots \textquotedbl), we have to type opening and closing quotation marks differently. For opening quotes, use the tick $`$ character (which is found to the left of the 1 key on my keyboard). For closing quotation marks, use just the regular apostrophe. For double quotes, just two two ticks or two apostophes. There's no need for the actual double quotation character (\texttt{"}). For apostrophes, just use the apostrophe.
 
 \vspace{1em}
 \begin{minipage}[t]{0.5\textwidth}
@@ -144,13 +161,19 @@ this enough---heaven-sent.
     Kelly single-handedly made 4--5 dozen New York--style bagels and they were---and I cannot stress this enough---heaven-sent.
   \end{minipage}
 }
+\hspace{1em}
 
+For additional help on special characters in \latex, see \href{https://en.wikibooks.org/wiki/LaTeX/Special_Characters}{this Wikibooks page}. As far as I know, any character can be typed in \latex: you may have to install additional libraries to get it, but do not be discouraged if you cannot easily get a symbol to appear. Someone else has likely needed that symbol before and has solved your problem.
 
 
 
 \subsection{Non-English characters}
 
-For accented, non-English, or other less-common characters, you may have to play around with them. Most accented characters will render just fine in \latex, which means you can feel free to type naïve, résumé, japapeño, vis-à-vis, tête-à-tête, façade, Māori, and háček. For other characters that are more specialized or are non-Latin based, you may have to resort to add-on packages to get them to render properly. The first one to check is the \href{http://ctan.math.utah.edu/ctan/tex-archive/macros/latex/required/babel/base/babel.pdf}{babel} package, which has support for over 200 languages, including Arabic, Cherokee, Chinese, Devanagari, Georgian, Greek, Hebrew, Persian, Faroese, Japanese, Korean, Russian, Sanskrit, Vietnamese, and a whole bunch more.
+For accented, non-Roman, or other less-common characters, you may have to play around with them. Most accented characters will render just fine in \latex, which means you can feel free to type \textit{naïve}, \textit{résumé}, \textit{japapeño}, \textit{vis-à-vis}, \textit{tête-à-tête}, \textit{façade}, \textit{Māori}, and \textit{háček} directly into your editor and they will appear as you expect them to.
+
+For other characters that are more specialized or are non-Latin based, you may have to resort to add-on packages to get them to render properly. The best one to check is the \href{http://ctan.math.utah.edu/ctan/tex-archive/macros/latex/required/babel/base/babel.pdf}{\texttt{babel}} package, which has support for over 200 languages, including Arabic, Cherokee, Chinese, Devanagari, Georgian, Greek, Hebrew, Persian, Faroese, Japanese, Korean, Russian, Sanskrit, Vietnamese, and a whole bunch more. Chances are, if you need to type a passage (or an entire document) in a language other than English, \texttt{babel} can take care of it.
+
+For additional help on internationalization in \latex, see \href{https://en.wikibooks.org/wiki/LaTeX/Internationalization}{this Wikibooks page} and these Overleaf help pages on \href{https://www.overleaf.com/learn/latex/International_language_support}{international language support}, \href{https://www.overleaf.com/learn/latex/Multilingual_typesetting_on_Overleaf_using_babel_and_fontspec}{\texttt{babel}}, and \href{https://www.overleaf.com/learn/latex/Multilingual_typesetting_on_Overleaf_using_polyglossia_and_fontspec}{other related packages}.
 
 
 
@@ -159,7 +182,36 @@ For accented, non-English, or other less-common characters, you may have to play
 
 \subsection{Commenting your code}
 
-Under constrution\ldots
+Before we get into the thick of things, I should mention the importance of commenting your code. Like virtually all scripting and programming languages, \latex offers a way for you as the user to insert comments alongside your code so that you can remind youself what, why, and how you did things.
+
+The way to comment your code is with the \verb+%+ character. The way it works is that \latex ignores anything that follows the percent symbol on a line. This is why in the example above the line seemingly stopped after the \texttt{75}. Some people like to put comments for a particular line of code one line above. Others like to put it at the end of the line.
+
+\vspace{1em}
+\begin{minipage}[t]{0.5\textwidth}
+  \begin{verbatim}
+% To get the fancy LaTex, use
+the \LaTeX command.
+\LaTeX is 50\% patience, 50\%
+skill, and 50\% art.
+
+We don't stop at 100\%! % Type
+\% for a percent sign
+  \end{verbatim}
+\end{minipage}
+\fbox{
+  \begin{minipage}[t]{0.4\textwidth}
+    % To get the fancy LaTex, use the \LaTeX command.
+    \LaTeX is 50\% patience, 50\% skill, and 50\% art.
+
+    We don't stop at 100\%! % Type \% for a percent sign
+  \end{minipage}
+}
+\hspace{1em}
+
+It may not seem important now, but start getting into the habit of commenting your code. A few weeks from now, you're going to forget why you did what you did. For me, most of the comments are in the preable rather than the body, but if there's something tricky I had to do in the body, I put comments there too. I like to not just explain \textit{what} code does, but \textit{why} I had to do it that way. I also like to put links to online help pages where I learned a particular trick. You can have as many comments as you want, and \latex won't care a bit. Your future self will thank you.
+
+For additional reading on commenting your code, see \href{https://www.overleaf.com/learn/latex/Creating_a_document_in_LaTeX#Comments}{this Overleaf page} and \href{https://en.wikibooks.org/wiki/LaTeX/Basics#Comments}{this section in Wikibooks}.
+
 
 
 
@@ -168,7 +220,9 @@ Under constrution\ldots
 
 \section{Changing the text (locally)}
 
-\subsection{Fonts}
+Now that we've seen how to do the basics of typing text in \latex, let's see how we can make local changes to that text. But local, I mean changes that apply to one or maybe a few words at a time.
+
+\subsection{Text formatting}
 
 In addition to being able to type whatever you want, it's important to also be able to format that text. You can use \textbf{bold} with \verb+\textbf{}+ and \textit{italics} with \verb+\textit{}+. There is also a \textsl{slanted text} with \verb+\textsl{}+ in case you need that.
 
@@ -193,6 +247,8 @@ This is \textsl{slanted}.
 \noindent
 Also, note that these functions can be embedded within one another so that to do \textbf{\textit{bold italics}} you can type \verb+ \textbf{\textit{bold italics}}+.
 
+Be aware that if you copy and paste text over from Word into \latex, it will not preserve this formatting. You will have to manually add these codes in yourself.
+
 \subsection{Captitalization}
 
 You can also adjust the capitalization of your text. Note that these commands ignore whatever case your original text is in and displays them correctly.
@@ -216,11 +272,11 @@ This is \textsc{Small Caps}.
 }
 
 \noindent
-Note that if you have accented characters that need to change to uppercase, you might want to try \verb+\MakeUppercase{}+ and \verb+\MakeLowercase+ instead.
+Note that if you have accented characters that need to change to uppercase (like turning {\ae} to \AE), you might want to try \verb+\MakeUppercase{}+ and \verb+\MakeLowercase+ instead.
 
-\subsection{Typefaces}
+\subsection{Font families}
 
-It may also be important to change font families. Body text is usually written in a serif font, which is one that has the little tails and horizontal embellishments on the letters (called \textit{serifs}). To force text to be in a serif (or \textit{roman}) font, you can use \verb+\textrm{}+. Headers are often typed in a \textsf{sans serif} font. Computer code is often typed in a \texttt{typewriter} or \texttt{monospaced} font:
+It may also be important to change the font family. Body text is usually written as it is in this handout, in a serif font. \textit{Serifs} are those little tails and horizontal embellishments on the letters. To force text to be in a serif (or \textit{roman}) font, you can use \verb+\textrm{}+. Headers are often typed in a \textsf{sans serif} font, or one without those little tails. Computer code is often typed in a \texttt{typewriter} or \texttt{monospaced} font:
 
 \vspace{1em}
 \begin{minipage}[t]{0.5\textwidth}
@@ -239,12 +295,13 @@ A \texttt{typewriter} font.
     A \texttt{typewriter} font.
   \end{minipage}
 }
+For information on how to change the font in your entire document, see section \ref{sec:fonts}.
 
 \subsection{Size}
 
 Finally, it may be important to change the font size. While this is not done very often within the body of a document, it's good to be aware of the options.
 
-First off the default size of the text is 10-point font. But you can change it to something different by adding some additional information in the very first line of your document: \verb+\documentclass[11pt]{article}+ will change it to 11-point font, for example. As with most other things in the preamble, this change will modify your entire document.
+First off the default size of the text is 10-point font. But you can set it to something different by adding some additional information in the very first line of your document: \verb+\documentclass[11pt]{article}+ will change it to 11-point font, for example. As with most other things in the preamble, this change will modify your entire document.
 
 The easiest way to \textit{change} sizes is by using one of several built-in commands for changing the size relative to the normal size. The benefit of this is that if you ever need to change your font size, these changes will scale up or down proportionally.
 
@@ -314,7 +371,7 @@ Just {\large this text} is large.
   \end{minipage}
 }
 
-Of course you can manually set the font size to a specific size if you'd like. This is accomplished with the template \verb+\fontsize{}{}\selectfont+. Within the first pair of curly brackets, you put the size and the unit (points = \texttt{pt}, millimeters = \texttt{mm}, centimeters = \texttt{cm}, inches = \texttt{in}, whatever). Within the second pair, you need to specify the \textit{leading}, which the typographical term for the line spacing, because when you change font size you're probably going to want to change the spacing. Typically, you give it a little extra spacing so that it doesn't run into the line above it.
+Of course you can manually set the font size to a specific size if you'd like. This is accomplished with the template \verb+\fontsize{}{}\selectfont+. Within the first pair of curly brackets, you put the size and the unit (points = \texttt{pt}, millimeters = \texttt{mm}, centimeters = \texttt{cm}, inches = \texttt{in}, whatever). For example, to change it to one centimenter-high text, you'd use \texttt{1cm}. Within the second pair of brackets, you need to specify the \textit{leading}, which the typographical term for the line spacing, because when you change font size you're probably going to want to change the spacing. Typically, you make the spacing a little larger than the font size so that the letters don't run into the line above it.
 
 \vspace{1em}
 \begin{minipage}[t]{0.5\textwidth}
@@ -336,13 +393,20 @@ it back when you're done!
   \end{minipage}
 }
 
+For more information on font families and sizes, see \href{https://www.overleaf.com/learn/latex/Font_sizes,_families,_and_styles}{this Overleaf page} or \href{https://en.wikibooks.org/wiki/LaTeX/Fonts#Sizing_text}{this Wikibooks page}. For more information on changing the line spacing in your entire document, see section \ref{sec:line_spacing}.
+
+
+
+
+
+
 \section{Document structure}
 
 When moving beyond the paragraph level, it's important to know how to add some elements to your document to give it structure and organization. In this section, we look at sections, lists, and footnotes.
 
 \subsection{Headers and subheaders}
 
-Unless you're writing a novel, it's probably important to have some headers to break your document up into sections. Fortunately, it's straightforward with the \verb+\section{}+ command. For deeper levels, you can do \verb+\subsection{}+ and even \verb+\subsubsection{}+.
+Unless you're writing a novel, it's probably important to have some headers to break your document up to give it structure and organization. Fortunately, it's straightforward with the \verb+\section{}+ command. For deeper levels, you can do \verb+\subsection{}+ and even \verb+\subsubsection{}+.
 
 \vspace{1em}
 \begin{minipage}[t]{0.5\textwidth}
@@ -366,7 +430,7 @@ Unless you're writing a novel, it's probably important to have some headers to b
 \noindent
 It's generally unwise to go a fourth level deep because readers often have a hard time of keeping that many levels straight, so it's not as straightforward to do in LaTeX.
 
-If you don't like the numbers, you can suppress them by adding an asterisk after the name of the command but before the curly brackets:
+By default, it'll add the numbers at the start of each line. If you don't like the numbers, you can suppress them by adding an asterisk after the name of the command but before the curly brackets:
 
 \vspace{1em}
 \begin{minipage}[t]{0.5\textwidth}
@@ -388,11 +452,48 @@ If you don't like the numbers, you can suppress them by adding an asterisk after
 
 Technically, it's possible to just include bigger and bolder text to create the illustion of sections, but that's not recommended. The reason is because when you type things as sections, you can generate a table of contents. You can do so by putting \verb+\tableofcontents+ somewhere near the top of your document (perhaps just under the title). That's exactly what I've done in this document.
 
+\vspace{1em}
+
+
 \subsection{Internal references}
 
-Under constrution\ldots
+It's quite common in a dissertation-sized document that you'll want to refer to some other section (``As mentioned in section 2.1\ldots'' or ``As will be explained in section 5.5\ldots''). In most typsetting programs, you would have to type that number in yourself. But as soon as you start to reorganize your document, such that section 2.1 is now section 3.2, you'll have to go back and change all those references. This is tedious and error-prone. Isn't there a better way? Yes!
 
+One of the selling points in \latex is its abilty to handle internal references. They way it works is with a pair of commands: the section that you want to make reference to, you mark with \verb+\label{...}+ and the in-text reference to that section is with \verb+\ref{...}+. The best part: \latex will make a hyperlink directly to that section for you so that readers can easily navigate to that page.
 
+Let's say I have some section header called ``Background''. I can add a small bit of code underneath, giving it the label \texttt{background}:
+
+\vspace{1em}
+\begin{minipage}[t]{0.5\textwidth}
+  \begin{verbatim}
+\subsection{Background}
+\label{background}
+  \end{verbatim}
+\end{minipage}
+\fbox{
+  \begin{minipage}[t]{0.4\textwidth}
+    \subsection*{2.1\hspace{1em}Background}
+  \end{minipage}
+}
+Then, later in your document, you insert the code instead of the number:
+
+\vspace{1em}
+\begin{minipage}[t]{0.5\textwidth}
+  \begin{verbatim}
+As seen in section
+\ref{background}...
+  \end{verbatim}
+\end{minipage}
+\fbox{
+  \begin{minipage}[t]{0.4\textwidth}
+    As seen in section 2.1\ldots
+  \end{minipage}
+}
+Now, if I move the background section around somewhere, that 2.1 will change automatically.
+
+In this document, internal references are indicated using the default, a red box around the text. This is useful for people viewing the PDF, and it doesn't print. You may like the look of a light blue text instead, as if it were a webpage (though be aware that it will show up as light gray when printed). For details on customizing how hyperlinks appear see \href{https://en.wikibooks.org/wiki/LaTeX/Hyperlinks}{this Wikibooks page} on the \texttt{hyperref} package.
+
+When I typset my dissertation, I put labels underneath every section right away. That way, they all had a reference ready for me to use in case I needed it. In fact, knowing that it was just that easy to make these kinds of internal references made include many more of them that I would have otherwise.
 
 \vspace{1em}
 \subsection{Lists}
@@ -449,13 +550,64 @@ For more information, including how to customize the symbols, change the numeric
 
 \subsection{Footnotes}
 
-Under constrution\ldots
+Footnotes in \latex are quite straightforwardly implemented with the \verb+\footnote{}+ function. Wherever you put that code, that's where the little superscript number will appear in your text. Whatever you type between brackets will be the footnote itself. \latex will take care of lettering/numbering them automatically:
+
+\vspace{1em}
+\begin{minipage}[t]{0.5\textwidth}
+  \begin{verbatim}
+Here's some text!\footnote{And
+here's a footnote!}
+  \end{verbatim}
+\end{minipage}
+\fbox{
+  \begin{minipage}[t]{0.4\textwidth}
+    \noindent
+    Here's some text!\footnote{And here's a footnote!}
+  \end{minipage}
+}
+\hspace{1em}
+
+See \href{https://www.overleaf.com/learn/latex/Footnotes}{this Overleaf page} and \href{https://en.wikibooks.org/wiki/LaTeX/Footnotes_and_Margin_Notes}{this Wikibooks page} for more information on unusual footnote situations, like multiple marks for the same footnote and custom markers on a footnote.
+
 
 
 
 \subsection{Long quotations}
 
-Under constrution\ldots
+In dissertations, it's relatively common to quote a longer passage from some previous source. For these cases, it's nice to have the quotation indented a little bit to make it clear that it's a quote and not your words. To accomplish this, you simply use the \verb+quotation+ environment, with the usual \verb+\begin{}+ and \verb+\end{}+ tags.
+
+
+\vspace{1em}
+\begin{minipage}[t]{0.5\textwidth}
+  \begin{verbatim}
+Some famous author said this:
+\begin{quotation}
+  \noindent
+  ``This is a super awesome,
+  totally incredible, long
+  passage that the person said!''
+\end{quotation}
+I wish I could be as smart as
+them!
+  \end{verbatim}
+\end{minipage}
+\fbox{
+  \begin{minipage}[t]{0.4\textwidth}
+    Some famous author said this:
+    \begin{quotation}
+      \noindent
+      ``This is a super awesome, totally incredible, long passage that the person said!''
+    \end{quotation}
+    I wish I could be as smart as them!
+  \end{minipage}
+}
+\hspace{1em}
+By default, the first line of the quoted paragraph is indented, but I find it looks a little nicer if it starts without the extra indentation.
+
+
+
+
+
 
 
 
@@ -621,6 +773,7 @@ There are many more aspects of the page's layout that you can change with the \t
 
 
 \section{Fonts}
+\label{sec:fonts}
 
 Link to the list of fonts
 
@@ -628,6 +781,7 @@ Link to the list of fonts
 
 
 \section{Line spacing}
+\label{sec:line_spacing}
 
 Double spaced, etc. Perhaps join in with geometry package above.
 
